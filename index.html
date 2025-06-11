@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seminario Internacional de Respuesta a Emergencias - Bomberos Líbano Tolima Col</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+    .bebas-neue-regular {
+      font-family: "Bebas Neue", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: black;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+    }
+
+    .waiting-text {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .dots {
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      50% {
+        opacity: 1;
+      }
+
+      51%,
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .session-info {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background-color: #111;
+    }
+
+    .session-date {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #ff6b35;
+    }
+
+    .time-zones {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .time-zone {
+      margin: 10px;
+    }
+
+    .time-zone h3 {
+      margin: 5px 0;
+      font-size: 1.2rem;
+      color: #ffd700;
+    }
+
+    .time-zone p {
+      margin: 5px 0;
+      font-size: 1.1rem;
+    }
+
+    .countdown {
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #00ff88;
+    }
+
+    .current-time {
+      font-size: 1.5rem;
+      margin: 15px 0;
+      color: #87ceeb;
+      border-top: 1px solid #333;
+      padding-top: 15px;
+    }
+
+    .join-button {
+      display: none;
+      background-color: #ff6b35;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 20px 0;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .join-button:hover {
+      background-color: #e55a2b;
+    }
+
+    .canva-container {
+      margin-top: 40px;
+    }
+
+    .canva-link {
+      color: #ffd700;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .canva-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="bebas-neue-regular title">Seminario Internacional de Respuesta a Emergencias
+    </h1>
+    <h2 class="bebas-neue-regular">Bomberos Voluntarios Líbano Tolima Colombia<br />
+      Cuerpo de Bomberos Fortín y Corredor Norte de Cuerpos de Socorro Veracruz México</h2>
+
+    <div id="waitingText" class="bebas-neue-regular waiting-text">
+      Esperando la siguiente sesión<span class="dots">...</span>
+    </div>
+
+    <div id="sessionInfo" class="session-info bebas-neue-regular">
+      <div id="sessionDate" class="session-date"></div>
+      <div class="time-zones">
+        <div class="time-zone">
+          <h3>Colombia</h3>
+          <p id="bogotaTime"></p>
+        </div>
+        <div class="time-zone">
+          <h3>Veracruz, México</h3>
+          <p id="veracruzTime"></p>
+        </div>
+      </div>
+      <div id="countdown" class="countdown"></div>
+      <div id="currentTime" class="current-time bebas-neue-regular"></div>
+      <button id="joinButton" class="join-button bebas-neue-regular" onclick="joinMeeting()">
+        Ingresar a la sesión
+      </button>
+    </div>
+
+    <div class="canva-container">
+      <div style="position: relative; width: 100%; height: 0; padding-top: 177.7778%;
+             padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+             border-radius: 8px; will-change: transform;">
+        <iframe loading="lazy"
+          style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+          src="https://www.canva.com/design/DAGp_S__bWc/3env1SjhuQes-j4pVszIMA/view?embed"
+          allowfullscreen="allowfullscreen" allow="fullscreen">
+        </iframe>
+      </div>
+      <a href="https://www.canva.com/design/DAGp_S__bWc/3env1SjhuQes-j4pVszIMA/view?utm_content=DAGp_S__bWc&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+        target="_blank" rel="noopener" class="canva-link bebas-neue-regular">
+        SEMINARIO INTERNACIONAL DE RESPUESTA A EMERGENCIAS
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Configuración de sesiones (GMT-5 Bogotá)
+    const sessions = {
+      session1: {
+        startDate: new Date('2025-06-10T20:00:00-05:00'), // 8 PM Bogotá
+        durationHours: 3, // 3 horas por defecto
+        meetingUrl: 'https://meet.google.com/xkb-rhjb-hvo'
+      },
+      session2: {
+        startDate: new Date('2025-06-19T19:00:00-05:00'), // 7 PM Bogotá
+        durationHours: 3, // 3 horas por defecto
+        meetingUrl: 'https://meet.google.com/xkb-rhjb-hvo'
+      },
+      session3: {
+        startDate: new Date('2025-06-20T19:00:00-05:00'), // 7 PM Bogotá
+        durationHours: 2.5, // 2.5 horas (ejemplo de duración personalizada)
+        meetingUrl: 'https://meet.google.com/xkb-rhjb-hvo'
+      }
+    };
+
+    let currentSession = null;
+    let currentMeetingUrl = '';
+
+    function getNextSession() {
+      const now = new Date();
+      const sessionArray = Object.values(sessions);
+
+      for (let session of sessionArray) {
+        const endDate = new Date(session.startDate.getTime() + (session.durationHours * 60 * 60 * 1000));
+        const bufferTime = new Date(endDate.getTime() + (15 * 60 * 1000)); // 15 minutos después
+
+        if (bufferTime > now) {
+          return session;
+        }
+      }
+
+      return null; // No hay más sesiones
+    }
+
+    function formatDate(date) {
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      return date.toLocaleDateString('es-ES', options);
+    }
+
+    function formatTime(date, timeZone) {
+      return date.toLocaleTimeString('es-ES', {
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: timeZone
+      });
+    }
+
+    function getSessionStatus(session) {
+      const now = new Date();
+      const startTime = session.startDate;
+      const endTime = new Date(startTime.getTime() + (session.durationHours * 60 * 60 * 1000));
+      const bufferTime = new Date(endTime.getTime() + (15 * 60 * 1000)); // 15 minutos después
+
+      if (now < startTime) {
+        return 'before'; // Antes de la sesión
+      } else if (now >= startTime && now <= endTime) {
+        return 'during'; // Durante la sesión
+      } else if (now > endTime && now <= bufferTime) {
+        return 'buffer'; // En el período de buffer (15 min después)
+      } else {
+        return 'finished'; // Sesión terminada
+      }
+    }
+
+    function updateCountdown() {
+      if (!currentSession) {
+        document.getElementById('countdown').textContent = 'No hay más sesiones programadas';
+        document.getElementById('joinButton').style.display = 'none';
+        document.getElementById('waitingText').style.display = 'block';
+        return;
+      }
+
+      const now = new Date();
+      const startTime = currentSession.startDate;
+      const endTime = new Date(startTime.getTime() + (currentSession.durationHours * 60 * 60 * 1000));
+      const bufferTime = new Date(endTime.getTime() + (15 * 60 * 1000));
+      const sessionStatus = getSessionStatus(currentSession);
+      const thirtyMinutes = 30 * 60 * 1000; // 30 minutos en milisegundos
+
+      // Si la sesión ya terminó completamente (incluyendo buffer), buscar la siguiente
+      if (sessionStatus === 'finished') {
+        currentSession = getNextSession();
+        if (currentSession) {
+          currentMeetingUrl = currentSession.meetingUrl;
+          updateSessionInfo();
+        } else {
+          document.getElementById('countdown').textContent = 'No hay más sesiones programadas';
+          document.getElementById('joinButton').style.display = 'none';
+          document.getElementById('waitingText').style.display = 'block';
+        }
+        return;
+      }
+
+      let countdownText = '';
+      let timeLeft = 0;
+
+      if (sessionStatus === 'before') {
+        // Antes de la sesión
+        document.getElementById('waitingText').style.display = 'block';
+        timeLeft = startTime - now;
+        
+        // Mostrar botón si faltan 30 minutos o menos
+        if (timeLeft <= thirtyMinutes) {
+          document.getElementById('joinButton').style.display = 'inline-block';
+        } else {
+          document.getElementById('joinButton').style.display = 'none';
+        }
+
+        // Calcular tiempo restante hasta el inicio
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        if (days > 0) {
+          countdownText += `${days}d `;
+        }
+        if (hours > 0) {
+          countdownText += `${hours}h `;
+        }
+        countdownText += `${minutes}m ${seconds}s`;
+
+      } else if (sessionStatus === 'during') {
+        // Durante la sesión
+        document.getElementById('waitingText').style.display = 'none';
+        document.getElementById('joinButton').style.display = 'inline-block';
+        timeLeft = endTime - now;
+        
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        countdownText = `Sesión en curso - Termina en: ${hours}h ${minutes}m ${seconds}s`;
+
+      } else if (sessionStatus === 'buffer') {
+        // En período de buffer (15 min después)
+        document.getElementById('waitingText').style.display = 'none';
+        document.getElementById('joinButton').style.display = 'inline-block';
+        timeLeft = bufferTime - now;
+        
+        const minutes = Math.floor(timeLeft / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        countdownText = `Acceso disponible por: ${minutes}m ${seconds}s más`;
+      }
+
+      document.getElementById('countdown').textContent = countdownText;
+    }
+
+    function updateCurrentTime() {
+      const now = new Date();
+      const bogotaTime = now.toLocaleString('es-ES', {
+        timeZone: 'America/Bogota',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      const veracruzTime = now.toLocaleString('es-ES', {
+        timeZone: 'America/Mexico_City',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+      
+      document.getElementById('currentTime').innerHTML = 
+        `<strong>Hora Actual:</strong><br>
+        Colombia: ${bogotaTime}<br>
+        Veracruz: ${veracruzTime}`;
+    }
+
+    function updateSessionInfo() {
+      if (!currentSession) return;
+
+      // Fecha de la sesión
+      const startTime = currentSession.startDate;
+      const endTime = new Date(startTime.getTime() + (currentSession.durationHours * 60 * 60 * 1000));
+      
+      document.getElementById('sessionDate').textContent = formatDate(startTime);
+
+      // Horarios en ambas zonas horarias (inicio - fin)
+      const bogotaStart = formatTime(startTime, 'America/Bogota');
+      const bogotaEnd = formatTime(endTime, 'America/Bogota');
+      const veracruzStart = formatTime(startTime, 'America/Mexico_City');
+      const veracruzEnd = formatTime(endTime, 'America/Mexico_City');
+
+      document.getElementById('bogotaTime').textContent = `${bogotaStart} - ${bogotaEnd}`;
+      document.getElementById('veracruzTime').textContent = `${veracruzStart} - ${veracruzEnd}`;
+    }
+
+    function joinMeeting() {
+      if (currentMeetingUrl) {
+        window.open(currentMeetingUrl, '_blank');
+      }
+    }
+
+    // Inicializar
+    function init() {
+      currentSession = getNextSession();
+      if (currentSession) {
+        currentMeetingUrl = currentSession.meetingUrl;
+        updateSessionInfo();
+      }
+      updateCountdown();
+      updateCurrentTime();
+    }
+
+    // Ejecutar al cargar la página
+    init();
+
+    // Actualizar cada segundo
+    setInterval(() => {
+      updateCountdown();
+      updateCurrentTime();
+    }, 1000);
+  </script>
+</body>
+
+</html>
